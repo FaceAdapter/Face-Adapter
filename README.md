@@ -10,7 +10,7 @@ https://github.com/FaceAdapter/Face-Adapter/assets/169338086/5c40f37e-a847-4178-
 ### 1
 
 
-<video src="https://github.com/FaceAdapter/Face-Adapter/assets/169338086/5c40f37e-a847-4178-ae3a-e580e807989b"  controls="controls" preload></video>
+<video src="https://github.com/FaceAdapter/Face-Adapter/assets/169338086/5c40f37e-a847-4178-ae3a-e580e807989b"  controls="controls" preload autoplay></video>
 
 ### 2
 
