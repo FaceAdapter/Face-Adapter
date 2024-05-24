@@ -1,14 +1,3 @@
----
-title: FaceAdapter
-emoji: 🏆
-colorFrom: yellow
-colorTo: green
-sdk: gradio
-sdk_version: 4.31.5
-app_file: app.py
-pinned: false
-license: apache-2.0
----
 
 # ___***Face Adapter for Pre-Trained Diffusion Models with Fine-Grained ID and Attribute Control***___
 
