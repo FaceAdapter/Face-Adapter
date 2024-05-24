@@ -35,7 +35,7 @@ You can download models of FaceAdapter directly from [here](https://huggingface.
 from huggingface_hub import snapshot_download
 snapshot_download(repo_id="FaceAdapter/FaceAdapter", local_dir="./checkpoints")
 
-# If you wan to download one specific file
+# If you want to download one specific file
 from huggingface_hub import hf_hub_download
 hf_hub_download(repo_id="FaceAdapter/FaceAdapter", filename="controlnet/config.json", local_dir="./checkpoints")
 ```
