@@ -7,7 +7,10 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2405.12970-b31b1b.svg)](https://arxiv.org/abs/2405.12970)
 <a href='https://faceadapter.github.io/face-adapter.github.io/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
 <a href='https://huggingface.co/FaceAdapter/FaceAdapter'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
+<a href='https://huggingface.co/spaces/FaceAdapter/FaceAdapter'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'></a>
 [![GitHub](https://img.shields.io/github/stars/FaceAdapter/Face-Adapter?style=social)](https://github.com/FaceAdapter/Face-Adapter) 
+
+
 
 <img src="__assets__/banner.gif">
 
@@ -16,6 +19,7 @@
 Face-Adapter is an efficient and effective face editing adapter for pre-trained diffusion models, specifically targeting face reenactment and swapping tasks.
 
 ## Release
+- [2024/5/25] 🔥 We release the [gradio demo](https://huggingface.co/spaces/FaceAdapter/FaceAdapter).
 - [2024/5/24] 🔥 We release the code and models.
 
 
