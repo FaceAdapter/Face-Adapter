@@ -12,6 +12,7 @@ from diffusers.image_processor import PipelineImageInput
 from diffusers.pipelines.controlnet.multicontrolnet import MultiControlNetModel
 from diffusers.utils.torch_utils import is_compiled_module, is_torch_version
 from diffusers.pipelines.stable_diffusion import StableDiffusionPipelineOutput
+from fastai.basics import *
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 
@@ -39,10 +40,11 @@ def draw_pts70_batch(pts68, gaze, warp_mat256_np, dst_size, im_list=None, return
     right_eye_center = (right_eye2 + right_eye1) * 0.5
     left_eye_center = (left_eye2 + left_eye1) * 0.5
 
-    left_gaze = gaze[:,:2] * left_eye_length + left_eye_center
-    right_gaze = gaze[:,2:] * right_eye_length + right_eye_center
-    pts70 = torch.cat([pts68, left_gaze.view(-1,1,2), right_gaze.view(-1,1,2)],dim=1)
-    landmarks = pts70.cpu().numpy().round().astype(int)
+    with torch.no_grad():
+      left_gaze = gaze[:,:2] * left_eye_length + left_eye_center
+      right_gaze = gaze[:,2:] * right_eye_length + right_eye_center
+      pts70 = torch.cat([pts68, left_gaze.view(-1,1,2), right_gaze.view(-1,1,2)],dim=1)
+      landmarks = pts70.cpu().numpy().round().astype(int)
     
     colors = plt.get_cmap('rainbow')(np.linspace(0, 1, landmarks.shape[1]))
     colors = (255 * colors).astype(int)[:, 0:3].tolist()
@@ -883,5 +885,3 @@ class StableDiffusionFaceAdapterPipeline2(StableDiffusionControlNetPipeline):
             return (image, has_nsfw_concept)
 
         return StableDiffusionPipelineOutput(images=image, nsfw_content_detected=has_nsfw_concept)
-
-
