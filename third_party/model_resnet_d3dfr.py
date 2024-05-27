@@ -978,30 +978,7 @@ func_dict = {
 }
 
 import os
-def get_youtu3dmmrec(input_size, pretrained_path):
-    model = ResNetYoutu3DMM(input_size, Bottleneck, [3, 4, 6, 3])
 
-    if os.path.exists(pretrained_path):
-        checkpoint = torch.load(pretrained_path, map_location=lambda storage, loc: storage)
-        checkpoint_no_module = model.state_dict()
-        for k, v in checkpoint.items():
-            if k.startswith('module'):
-                k = k[7:]
-            # if k.startswith('output_layer'):
-            #     print(k)
-            #     continue
-            checkpoint_no_module[k] = v
-
-        info = model.load_state_dict(checkpoint_no_module, strict=False)
-        print("load ResNetYoutu3DMM 256: ", info)
-
-    n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print('n_parameters:', n_parameters / 1e6)
-
-    model = model.eval()
-    for param in model.parameters():
-        param.requires_grad = False
-    return model
 
 
 class Identity(nn.Module):
