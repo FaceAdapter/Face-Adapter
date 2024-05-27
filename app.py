@@ -101,27 +101,6 @@ def randomize_seed_fn(seed: int, randomize_seed: bool) -> int:
 def remove_tips():
     return gr.update(visible=False)
 
-def get_example():
-    case = [
-        [
-            "./examples/altman9.png",
-            "./examples/lecun.jpg",
-        ],
-        [
-            "./examples/bengio.jpg",
-            "./examples/sheeran.png",
-        ],
-        [
-            "./examples/emma.jpeg",
-            "./examples/beyonce.jpg",
-        ],
-        [
-            "./examples/lecun3.jpg",
-            "./examples/smith.jpeg",
-        ],
-    ]
-    return case
-
 def run_for_examples(face_file, pose_file):
     return generate_image(
         face_file,
@@ -463,16 +442,7 @@ with gr.Blocks(css=css) as demo:
         #     queue=False,
         # )
 
-    gr.Examples(
-        examples=get_example(),
-        inputs=[face_file, pose_file],
-        fn=run_for_examples,
-        outputs=[gallery, usage_tips],
-        cache_examples=True,
-    )
-
     gr.Markdown(article)
 
 demo.queue(api_open=False)
 demo.launch()
-
